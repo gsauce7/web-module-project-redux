@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
@@ -21,6 +20,7 @@ const App = (props) => {
   );
 };
 
+//map state to props to make the redux state available as props
 const mapStateToProps = (state) => {
   return {
     car: state.car,
@@ -29,28 +29,5 @@ const mapStateToProps = (state) => {
   };
 };
 
+//export default and connect to store
 export default connect(mapStateToProps, {})(App);
-
-/*** READ from the redux store
- *  const mapStateToProps = state => {
- *    //map each value to be read from the store to a prop
- *     return {
- *       editing: state.editing,
- *       title: state.title
- *     };
- *  };
- *
- * ** WRITE to the redux store
- *   const mapDispatchToProps = dispatch => {
- * // build a dispatching function from each action creator
- *   return {
- *     updateTitle: newTitle => dispatch(updateTitle(newTitle)),
- *     toggleEditing: () => dispatch(toggleEditing()),
- *     // other actions here
- *   };
- * };
- *
- * export default connect(mapStateToProps,mapDispatchToProps)(Title);
- *
- *
- */
